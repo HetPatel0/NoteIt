@@ -35,6 +35,7 @@ function NoteTextInput({ noteId, startingNoteText }: Props) {
 
   }
   return (
+    
     <Textarea
       value={noteText}
       onChange={(e) => handelUpdateNote(e)} placeholder="type your notes here "

@@ -7,12 +7,13 @@ import DarkModeToggle from './DarkmodeToggle';
 import LogOutButton from './LogOutButton';
 import { getUser } from '@/auth/server';
 import { SidebarTrigger } from './ui/sidebar';
+import { AnimatedThemeToggler } from './ui/animated-theme-toggler';
 
  async function header() {
   const users = await getUser();
   return (
-    <header className=' relative flex h-24 w-full items-center justify-between bg-popover sm:px-8 ' 
-    style={{boxShadow: shadow}}>
+    <header className=' relative flex h-24 w-full items-center justify-between bg-popover sm:px-8 ' >
+    {/* // style={{boxShadow: shadow}} */}
 
         <SidebarTrigger className=' absolute top-1 left-1 '/>
         <Link href="/" className='flex items-end gap-2'>
@@ -39,7 +40,8 @@ import { SidebarTrigger } from './ui/sidebar';
               </>
             )
            }
-           <DarkModeToggle />
+           {/* <DarkModeToggle />  */}
+           <AnimatedThemeToggler/>
 
         </div>
     </header>

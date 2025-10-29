@@ -59,3 +59,32 @@ export const deleteNoteAction = async (noteId: string) => {
     }
 
 } 
+export const askAIAboutNotesAction = async (newQuestions:string[], responses:string[]) => {
+    try {
+        const user = await getUser();
+        if (!user) throw new Error("you must be logged in to ask ai question about  note");
+
+       const notes  = await prisma.note.findMany({
+            where:{authorId:user.id},
+            orderBy:{createdAt:"desc"},
+            select:{text:true,createdAt:true,updatedAt:true}
+        })
+
+        if (notes.length===0) {
+            return "You don't have any notes yet "
+        }
+
+        const formattedNotes = notes.map((note)=>(
+            `Text : ${note.text}
+            CreatedAt:${note.createdAt}
+            Last Updated:${note.updatedAt}
+            
+            `.trim()
+        )).join('\n');
+
+        return { errorMessage: null };
+    } catch (error) {
+        return handleError(error)
+    }
+
+} 
