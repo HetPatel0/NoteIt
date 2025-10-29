@@ -73,16 +73,16 @@ export const askAIAboutNotesAction = async (newQuestions:string[], responses:str
         if (notes.length===0) {
             return "You don't have any notes yet "
         }
-
-        const formattedNotes = notes.map((note)=>(
-            `Text : ${note.text}
-            CreatedAt:${note.createdAt}
-            Last Updated:${note.updatedAt}
+//to be done
+        // const formattedNotes = notes.map((note)=>(
+        //     `Text : ${note.text}
+        //     CreatedAt:${note.createdAt}
+        //     Last Updated:${note.updatedAt}
             
-            `.trim()
-        )).join('\n');
+        //     `.trim()
+        // )).join('\n');
 
-        return { errorMessage: null };
+        // return { errorMessage: null };
     } catch (error) {
         return handleError(error)
     }
