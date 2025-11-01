@@ -38,6 +38,7 @@ export async function AppSidebar() {
           }
 
         </SidebarGroupLabel>
+        //cannot
         {
            user && <SidebarCusGroupContent notes={notes} />
         }
